@@ -63,6 +63,8 @@ extern int ascent_velocity(depth_t depth, depth_t avg_depth, int);
 extern const char *get_planner_disclaimer();
 
 void plan_add_segment(struct diveplan &diveplan, int duration, depth_t depth, int cylinderid, int po2, bool entered, enum divemode_t divemode);
+/* compute the tissue loading at the end of a (partial) dive */
+int tissue_at_end(struct deco_state *ds, struct dive *dive, const struct divecomputer *dc, deco_state_cache &cache);
 #if DEBUG_PLAN
 void dump_plan(struct diveplan *diveplan);
 #endif

@@ -1,0 +1,33 @@
+#!/usr/bin/env subsurface-plan
+# Example 1: simple air dive to 30 m for 20 minutes, Buhlmann GF 30/70,
+# subsurface computes the deco schedule.
+#
+# Settings ----------------------------------------------------------
+#
+deco-mode buehlmann
+gflow 30
+gfhigh 70
+salinity 10300
+
+# ascent/decent rates, last stop depth, planner coarse time step
+descent-rate 20
+ascent-rate 10
+ascent-rate-6m 6
+last-stop 6
+timestep 60
+
+# gas consumption model
+bottom-sac 20
+deco-sac 15
+
+# Cylinders ---------------------------------------------------------
+# bottom gas: 15 l filled to 210 bar
+cyl air size=15l start=210bar
+
+# Plan --------------------------------------------------------------
+# descend to 30 m on gas 0 (rate auto-computed)
+go 30m gas=0
+# stay 20 min
+hold 20min
+
+# (no ascent needed: the planner computes deco and the way up)

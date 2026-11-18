@@ -108,8 +108,10 @@ static void interpolate_transition(struct deco_state *ds, struct dive *dive, dur
 		calc_crushing_pressure(ds, dive->depth_to_bar(d1));
 }
 
-/* returns the tissue tolerance at the end of this (partial) dive */
-static int tissue_at_end(struct deco_state *ds, struct dive *dive, const struct divecomputer *dc, deco_state_cache &cache)
+/* returns the tissue tolerance at the end of this (partial) dive.
+ * exported so the command line planner can compute the tissue state of a
+ * simulated (as-dived) profile */
+int tissue_at_end(struct deco_state *ds, struct dive *dive, const struct divecomputer *dc, deco_state_cache &cache)
 {
 	depth_t lastdepth;
 	duration_t t0;

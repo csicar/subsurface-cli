@@ -57,6 +57,7 @@ option(LIBRAW_SUPPORT "enable support for LibRaw images" ON)
 
 # Options regarding What should we build on subsurface
 option(BUILD_TESTS "Build the tests" OFF)
+option(BUILD_PLANNER_CLI "Build the headless planner-cli (reference dive planner without GUI)" OFF)
 
 # Option whether we should try to build against Qt6, if it is available
 option(BUILD_WITH_QT6 "try to build against Qt6 (incomplete)" OFF)
@@ -481,6 +482,11 @@ add_subdirectory(mobile-widgets)
 add_subdirectory(stats)
 endif()
 add_subdirectory(backend-shared)
+
+if (BUILD_PLANNER_CLI)
+	add_subdirectory(planner-cli)
+endif()
+
 
 if (SUBSURFACE_TARGET_EXECUTABLE MATCHES "DesktopExecutable")
 	add_subdirectory(desktop-widgets)
