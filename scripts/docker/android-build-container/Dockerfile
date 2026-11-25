@@ -1,4 +1,4 @@
-FROM ubuntu:24.04 as base
+FROM ubuntu:26.04 as base
 
 RUN apt-get update  && \
     apt-get full-upgrade -y && \
